@@ -1,6 +1,6 @@
 # Модели данных и системы управления базами данных
 ## Даниленко Илья, 153502
-проект Система управления библиотекой
+Проект: Система управления библиотекой
 
 ### Функциональные требования:
 
@@ -14,3 +14,59 @@
 * Поиск книг по различным критериям (например: по автору, жанру, названию).
 * Управление информацией о читателях (CRUD - создание, чтение, обновление, удаление данных читателей).
 * Рецензии на книги и оценки (CRUD - создание, чтение, обновление, удаление рецензий).
+
+### Перечень сущностей БД:
+ 1. "Пользователь"
+       * ID (int, not null, pk),
+       * имя (text, not null),
+       * фамилия (text, not null),
+       * электронная почта (text, not null),
+       * пароль (text, not null),
+       * роль (text, not null).
+ 2. "Роль"
+       * ID (int, not null, pk),
+       * название роли (text, not null).
+ 3. "Книга" 
+      * ID (id, not null, pk),
+      * название (text, not null),
+      * автор (text, not null) -> Автор,
+      * жанр (text, not null) -> Жанр,
+      * количество копий (int, not null).
+ 4. "Читатель"
+      * ID (text, not null, pk),
+      * имя (text, not null),
+      * фамилия (text, not null),
+      * номер читательского билета (int, not null),
+      * дата рождения (date, not null),
+      * адрес (text, not null),
+      * количество взятых книг (int, not null).
+ 5. "Аренда"
+      * ID (int, not null, pk),
+      * книга (text, not null) -> Книга,
+      * читатель (text, not null) -> Читатель,
+      * дата выдачи (date, not null),
+      * дата возврата (date, not null),
+      * штраф (int, not null).
+ 6. "Журнал действий"
+      * ID (int, not null, pk),
+      * действие (text, not null),
+      * пользователь (text, not null) -> Пользователь,
+      * дата и время (date, not null).
+ 7. "Автор"
+      * ID (int, not null, pk),
+      * имя (text, not null),
+      * фамилия (text, not null).
+ 8. "Жанр"
+      * ID (int, not null, pk),
+      * название (text, not null).
+ 9. "Рецензия"
+      * ID (int, not null, pk),
+      * книга (text, not null) -> Книга,
+      * читатель (text, not null) -> Читатель,
+      * текст рецензии (text, not null),
+      * оценка (int, not null).
+10. "Издательство"
+      * ID (int, not null, pk),
+      * название (text, not null),
+      * адрес (text, not null),
+      * телефон (varchar(20), not null).
