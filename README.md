@@ -18,53 +18,54 @@
 ### Перечень сущностей БД:
  1. "Пользователь"
        * ID (int, not null, pk),
-       * имя (text, not null),
-       * фамилия (text, not null),
-       * электронная почта (text, not null),
-       * пароль (text, not null),
-       * роль (text, not null).
+       * имя (varchar, not null),
+       * фамилия (varchar, not null),
+       * электронная почта (varchar, not null),
+       * пароль (varchar, not null),
+       * роль (varchar, not null) -> Роль.
  2. "Роль"
        * ID (int, not null, pk),
-       * название роли (text, not null).
+       * название роли (varchar, not null).
  3. "Книга" 
       * ID (id, not null, pk),
-      * название (text, not null),
-      * автор (text, not null) -> Автор,
-      * жанр (text, not null) -> Жанр,
+      * название (varchar, not null),
+      * автор (varchar, not null) -> Автор,
+      * жанр (varchar, not null) -> Жанр,
       * количество копий (int, not null).
  4. "Читатель"
-      * ID (text, not null, pk),
-      * имя (text, not null),
-      * фамилия (text, not null),
+      * ID (int, not null, pk),
+      * имя (varchar, not null),
+      * фамилия (varchar, not null),
       * номер читательского билета (int, not null),
       * дата рождения (date, not null),
-      * адрес (text, not null),
+      * адрес (varchar, not null),
       * количество взятых книг (int, not null).
  5. "Аренда"
       * ID (int, not null, pk),
-      * книга (text, not null) -> Книга,
-      * читатель (text, not null) -> Читатель,
+      * книга (varchar, not null) -> Книга,
+      * читатель (varchar, not null) -> Читатель,
       * дата выдачи (date, not null),
       * дата возврата (date, not null),
       * штраф (int, not null).
  6. "Журнал действий"
       * ID (int, not null, pk),
-      * действие (text, not null),
-      * пользователь (text, not null) -> Пользователь,
+      * действие (varchar, not null),
+      * пользователь (varchar, not null) -> Пользователь,
       * дата и время (date, not null).
  7. "Автор"
       * ID (int, not null, pk),
-      * имя (text, not null),
-      * фамилия (text, not null).
+      * имя (varchar, not null),
+      * фамилия (varchar, not null).
  8. "Жанр"
       * ID (int, not null, pk),
-      * название (text, not null).
+      * название (varchar, not null).
  9. "Рецензия"
       * ID (int, not null, pk),
-      * книга (text, not null) -> Книга,
-      * читатель (text, not null) -> Читатель,
-      * текст рецензии (text, not null),
+      * книга (varchar, not null) -> Книга,
+      * читатель (varchar, not null) -> Читатель,
+      * текст рецензии (varchar, not null),
       * оценка (int, not null).
+        
 10. "Издательство"
       * ID (int, not null, pk),
       * название (text, not null),
