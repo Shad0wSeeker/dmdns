@@ -16,57 +16,58 @@
 * Рецензии на книги и оценки (CRUD - создание, чтение, обновление, удаление рецензий).
 
 ### Перечень сущностей БД:
- 1. "Пользователь"
+ 1. "User"
        * ID (int, not null, pk),
-       * имя (varchar, not null),
-       * фамилия (varchar, not null),
-       * электронная почта (varchar, not null),
-       * пароль (varchar, not null),
-       * роль_ID (int, not null) -> Роль.
- 2. "Роль"
+       * Name (varchar, not null),
+       * Surname (varchar, not null),
+       * email (varchar, not null),
+       * password (varchar, not null),
+       * Role_id (int, not null) -> Role, FK
+ 2. "Role"
        * ID (int, not null, pk),
-       * название роли (varchar, not null).
- 3. "Книга" 
+       * Name of role (varchar, not null).
+ 3. "Book" 
       * ID (id, not null, pk),
-      * название (varchar, not null),
-      * автор_ID (int, not null) -> Автор,
-      * жанр_ID (int, not null) -> Жанр,
-      * количество копий (int, not null).
- 4. "Читатель"
+      * Name (varchar, not null),
+      * Author_id (int, not null) -> Author, FK
+      * Genre_id (int, not null) -> Genre, FK
+      * Number of copies (int, not null).
+      * Publisher (int, not null) -> Publisher, FK
+ 4. "Reader"
       * ID (int, not null, pk),
-      * пользователь_ID (int, not null) -> Пользователь
-      * номер читательского билета (int, not null),
-      * дата рождения (date, not null),
-      * адрес (varchar, not null),
-      * количество взятых книг (int, not null).
- 5. "Аренда"
+      * User_id (int, not null) -> User, FK
+      * Library card number (int, not null),
+      * Date of birthday (date, not null),
+      * Address (varchar, not null),
+      * Number of books (int, not null).
+ 5. "Rent"
       * ID (int, not null, pk),
-      * книга_ID (int, not null) -> Книга,
-      * читатель_ID (int, not null) -> Читатель,
-      * дата выдачи (date, not null),
-      * дата возврата (date, not null),
-      * штраф (int, not null).
- 6. "Журнал действий"
+      * Book_id (int, not null) -> Book, FK
+      * Reader_id (int, not null) -> Reader, FK
+      * Issue date (date, not null),
+      * Rent date (date, not null),
+      * Fine (int, not null).
+ 6. "Log"
       * ID (int, not null, pk),
-      * действие (varchar, not null),
-      * пользователь_ID (int, not null) -> Пользователь,
-      * дата и время (date, not null).
- 7. "Автор"
+      * Action (varchar, not null),
+      * User_id (int, not null) -> User, FK
+      * Datetime (datetime, not null).
+ 7. "Author"
       * ID (int, not null, pk),
-      * имя (varchar, not null),
-      * фамилия (varchar, not null).
- 8. "Жанр"
+      * Name (varchar, not null),
+      * Surname (varchar, not null).
+ 8. "Genre"
       * ID (int, not null, pk),
-      * название (varchar, not null).
- 9. "Рецензия"
+      * Name (varchar, not null).
+ 9. "Review"
       * ID (int, not null, pk),
-      * книга_ID (int, not null) -> Книга,
-      * читатель_ID (int, not null) -> Читатель,
-      * текст рецензии (varchar, not null),
-      * оценка (int, not null).
+      * Book_id (int, not null) -> Book, FK
+      * Reader_id (int, not null) -> Reader, FK
+      * Text review (varchar, not null),
+      * Mark (int, not null).
         
-10. "Издательство"
+10. "Publisher"
       * ID (int, not null, pk),
-      * название (text, not null),
-      * адрес (text, not null),
-      * телефон (varchar(20), not null).
+      * Name (text, not null),
+      * Address (text, not null),
+      * Number of telephone (varchar, not null).
