@@ -22,35 +22,34 @@
        * фамилия (varchar, not null),
        * электронная почта (varchar, not null),
        * пароль (varchar, not null),
-       * роль (varchar, not null) -> Роль.
+       * роль_ID (int, not null) -> Роль.
  2. "Роль"
        * ID (int, not null, pk),
        * название роли (varchar, not null).
  3. "Книга" 
       * ID (id, not null, pk),
       * название (varchar, not null),
-      * автор (varchar, not null) -> Автор,
-      * жанр (varchar, not null) -> Жанр,
+      * автор_ID (int, not null) -> Автор,
+      * жанр_ID (int, not null) -> Жанр,
       * количество копий (int, not null).
  4. "Читатель"
       * ID (int, not null, pk),
-      * имя (varchar, not null),
-      * фамилия (varchar, not null),
+      * пользователь_ID (int, not null) -> Пользователь
       * номер читательского билета (int, not null),
       * дата рождения (date, not null),
       * адрес (varchar, not null),
       * количество взятых книг (int, not null).
  5. "Аренда"
       * ID (int, not null, pk),
-      * книга (varchar, not null) -> Книга,
-      * читатель (varchar, not null) -> Читатель,
+      * книга_ID (int, not null) -> Книга,
+      * читатель_ID (int, not null) -> Читатель,
       * дата выдачи (date, not null),
       * дата возврата (date, not null),
       * штраф (int, not null).
  6. "Журнал действий"
       * ID (int, not null, pk),
       * действие (varchar, not null),
-      * пользователь (varchar, not null) -> Пользователь,
+      * пользователь_ID (int, not null) -> Пользователь,
       * дата и время (date, not null).
  7. "Автор"
       * ID (int, not null, pk),
@@ -61,8 +60,8 @@
       * название (varchar, not null).
  9. "Рецензия"
       * ID (int, not null, pk),
-      * книга (varchar, not null) -> Книга,
-      * читатель (varchar, not null) -> Читатель,
+      * книга_ID (int, not null) -> Книга,
+      * читатель_ID (int, not null) -> Читатель,
       * текст рецензии (varchar, not null),
       * оценка (int, not null).
         
